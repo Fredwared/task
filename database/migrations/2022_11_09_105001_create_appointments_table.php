@@ -16,6 +16,7 @@ return new class extends Migration
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
+            $table->uuid();
             $table->integer('user_id');
             $table->integer('patient_id');
             $table->integer('room_number');
