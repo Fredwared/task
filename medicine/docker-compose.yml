@@ -1,0 +1,46 @@
+version: "3"
+services:
+  postgres:
+    container_name: "service_psql"
+    image: postgres:12.0-alpine
+    env_file:
+      - ./docker/postgres/.env.example
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5430:5432"
+  nginx:
+    image: nginx:alpine
+    container_name: "service_nginx"
+    ports:
+      - "80:80"
+    volumes:
+      - ./docker/nginx/:/etc/nginx/conf.d/
+      - .:/var/www
+    depends_on:
+      - medicine
+  pgadmin:
+    container_name: "service_pgadmin"
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: pgadmin4@pgadmin.org
+      PGADMIN_DEFAULT_PASSWORD: admin
+    volumes:
+      - pgadmin:/root/.pgadmin
+    ports:
+      - "10000:80"
+    depends_on:
+      - postgres
+  medicine:
+    image: service_medicine:alpine
+    build:
+      context: .
+      dockerfile: docker/Dockerfile
+    container_name: "service_medicine"
+    volumes:
+      - ./:/var/www
+    depends_on:
+      - postgres
+volumes:
+  postgres_data:
+  pgadmin:
