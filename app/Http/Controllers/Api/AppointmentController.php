@@ -11,9 +11,7 @@ use App\Http\Resources\Api\AppointmentEstimateResource;
 use App\Models\Appointment;
 use App\Models\User;
 use App\Services\AppointmentService;
-use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Illuminate\Support\Facades\Http;
 
 /**
  * Class AppointmentController
