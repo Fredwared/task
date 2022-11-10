@@ -16,4 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::group(['prefix' => 'appointment', 'as' => 'appointment.'], function(){
     Route::get('', [AppointmentController::class, 'estimate'])->name('estimate');
     Route::post('{user:uuid}', [AppointmentController::class, 'booking'])->name('booking');
+    Route::patch('{appointment:uuid}', [AppointmentController::class, 'status'])->name('status');
 });

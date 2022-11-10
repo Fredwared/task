@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Str;
 
 /**
  * Class AppointmentService
@@ -35,7 +36,7 @@ class AppointmentService
      * @param array $validated
      * @return Model
      */
-    public function book(User $user,array $validated): Model
+    public function book(User $user, array $validated): Model
     {
         /** @var PatientService $patientService */
         $patientService = app(PatientService::class);
@@ -48,6 +49,7 @@ class AppointmentService
         $queueNumber = $this->getCurrentOrder($bookingDate);
 
         return Appointment::query()->create([
+            'uuid' => Str::uuid()->toString(),
             'user_id' => $user->id,
             'patient_id' => $patient->id,
             'room_number' => fake()->numerify('##'),
@@ -63,6 +65,15 @@ class AppointmentService
      */
     protected function getCurrentOrder(Carbon $dateTime): int
     {
-        return Appointment::query()->whereBetween('booked_at',  [$dateTime->startOfDay(), $dateTime->endOfDay()])->count();
+        return Appointment::query()->whereBetween('booked_at', [$dateTime->startOfDay(), $dateTime->endOfDay()])->count();
+    }
+
+    public function changeStatus(Appointment $appointment, string $status)
+    {
+        $appointment->update([
+            'status' => $status
+        ]);
+
+        return $appointment->fresh();
     }
 }

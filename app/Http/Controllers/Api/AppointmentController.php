@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AppointmentEstimateRequest;
 use App\Http\Requests\Api\AppointmentBookingRequest;
+use App\Http\Requests\Api\AppointmentStatusChangeRequest;
 use App\Http\Resources\Api\AppointmentBookingResource;
 use App\Http\Resources\Api\AppointmentEstimateResource;
+use App\Models\Appointment;
 use App\Models\User;
 use App\Services\AppointmentService;
 use Illuminate\Http\Request;
@@ -61,6 +63,22 @@ class AppointmentController extends Controller
     public function booking(User $user, AppointmentBookingRequest $appointmentBookingRequest): AppointmentBookingResource
     {
         $appointment = $this->appointmentService->book($user, $appointmentBookingRequest->validated());
+
+        return new AppointmentBookingResource($appointment);
+    }
+
+
+    /**
+     * Change status
+     * Смена статуса
+     *
+     * @param Appointment $appointment
+     * @param AppointmentStatusChangeRequest $changeRequest
+     * @return AppointmentBookingResource
+     */
+    public function status(Appointment $appointment, AppointmentStatusChangeRequest $changeRequest)
+    {
+        $appointment = $this->appointmentService->changeStatus($appointment, $changeRequest->input('status'));
 
         return new AppointmentBookingResource($appointment);
     }

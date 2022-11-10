@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 /**
  * Class Appointment
  * @package App\Models
+ *
+ * @property string $status
  */
 class Appointment extends Model
 {
