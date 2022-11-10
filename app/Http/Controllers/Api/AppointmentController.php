@@ -72,6 +72,8 @@ class AppointmentController extends Controller
      * Change status
      * Смена статуса
      *
+     * @bodyParam status string required Статус исполение
+     *
      * @param Appointment $appointment
      * @param AppointmentStatusChangeRequest $changeRequest
      * @return AppointmentBookingResource
