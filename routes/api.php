@@ -1,7 +1,6 @@
 <?php
 
 use App\Http\Controllers\Api\AppointmentController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,4 +15,5 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => 'appointment', 'as' => 'appointment.'], function(){
     Route::get('', [AppointmentController::class, 'estimate'])->name('estimate');
+    Route::post('{user:uuid}', [AppointmentController::class, 'booking']);
 });

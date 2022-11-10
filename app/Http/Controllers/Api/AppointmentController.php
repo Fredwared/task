@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\AppointmentEstimateRequest;
-use App\Http\Requests\Api\AppointmentStoreRequest;
+use App\Http\Requests\Api\AppointmentBookingRequest;
+use App\Http\Resources\Api\AppointmentBookingResource;
 use App\Http\Resources\Api\AppointmentEstimateResource;
+use App\Models\User;
 use App\Services\AppointmentService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Support\Facades\Http;
 
 /**
  * Class AppointmentController
@@ -41,5 +44,24 @@ class AppointmentController extends Controller
         $result = $this->appointmentService->estimation($appointmentEstimateRequest->validated());
 
         return AppointmentEstimateResource::collection($result);
+    }
+
+
+    /**
+     * Booking appointment
+     * Бронирование встречи
+     *
+     * @bodyParam passport string required Идентификатор пасспорта
+     * @bodyParam booking_date string required Время встречи. Формат: Y-m-d H:i:s Пример: 2022-11-11 12:00:00
+     *
+     * @param User $user
+     * @param AppointmentBookingRequest $appointmentBookingRequest
+     * @return AppointmentBookingResource
+     */
+    public function booking(User $user, AppointmentBookingRequest $appointmentBookingRequest): AppointmentBookingResource
+    {
+        $appointment = $this->appointmentService->book($user, $appointmentBookingRequest->validated());
+
+        return new AppointmentBookingResource($appointment);
     }
 }
