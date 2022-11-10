@@ -19,16 +19,24 @@ services:
       - .:/var/www
     depends_on:
       - auth
+    networks:
+      - oauth-net
   auth:
     image: auth_medicine:alpine
+    hostname: "auth_app"
     build:
       context: .
       dockerfile: docker/Dockerfile
-    container_name: "auth_medicine"
+    container_name: "auth_app"
     volumes:
       - ./:/var/www
     depends_on:
       - postgres
+    networks:
+      - oauth-net
 volumes:
   postgres_data:
   pgadmin:
+networks:
+  oauth-net:
+      driver: bridge

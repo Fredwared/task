@@ -19,16 +19,25 @@ services:
       - .:/var/www
     depends_on:
       - medicine
+    networks:
+      - oauth-network
   medicine:
     image: medicine_medicine:alpine
+    hostname: "medicine_app"
     build:
       context: .
       dockerfile: docker/Dockerfile
-    container_name: "medicine_medicine"
+    container_name: "medicine_app"
     volumes:
       - ./:/var/www
     depends_on:
       - postgres
+    networks:
+      - oauth-network
 volumes:
   postgres_data:
   pgadmin:
+networks:
+    oauth-network:
+        name: "auth_oauth-net"
+        external: true
