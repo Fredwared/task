@@ -7,7 +7,7 @@
 - Nginx
 - MySQL or Postgres
 - Redis
-- PHP >= 8.0 and see (modules requirements)[https://laravel.com/docs/9.x/deployment#server-requirements]
+- PHP >= 8.0 and see [modules requirements](https://laravel.com/docs/9.x/deployment#server-requirements)
 - Docker (optional)
 
 
