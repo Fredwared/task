@@ -11,6 +11,12 @@ use App\Services\AuthService;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Validation\ValidationException;
 
+/**
+ * Class AuthController
+ * @package App\Http\Controllers\Api
+ *
+ * @group Authentication
+ */
 class AuthController extends Controller
 {
     const USERNAME = 'email';
@@ -34,11 +40,13 @@ class AuthController extends Controller
      *
      * @param LoginRequest $request
      *
-     * @bodyParam username string required Имя пользователя
+     * @bodyParam email string required Имя пользователя
      * @bodyParam password string required Пароль ползователя
      *
      * @return LoginResource
      * @throws ValidationException
+     *
+     * @responseFile responses/login.json
      */
     public function login(LoginRequest $request): LoginResource
     {
@@ -56,6 +64,8 @@ class AuthController extends Controller
      * @bodyParam  password_confirmation string required подтверждение пользователя.
      *
      * @return JsonResponse
+     *
+     * @responseFile responses/register.json
      */
     public function register(RegisterRequest $request): JsonResponse
     {
@@ -69,9 +79,11 @@ class AuthController extends Controller
      * Log the user out (Invalidate the token).
      * Выйти из профиля
      *
-     * @authenticated
+     * @header Authorization Bearer {token}
      *
      * @return JsonResponse
+     *
+     * @responseFile responses/logout.json
      */
     public function logout(): JsonResponse
     {
@@ -84,7 +96,11 @@ class AuthController extends Controller
      * User profile information
      * Информация о профиле
      *
+     * @header Authorization Bearer {token}
+     *
      * @return UserResource
+     *
+     * @responseFile responses/me.json
      */
     public function me()
     {

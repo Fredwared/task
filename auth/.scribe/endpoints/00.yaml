@@ -1,0 +1,220 @@
+name: Authentication
+description: ''
+endpoints:
+  -
+    httpMethods:
+      - POST
+    uri: api/login
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: Authentication.
+      description: Аутентификация.
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: 'Имя пользователя'
+        required: true
+        example: accusamus
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'Пароль ползователя'
+        required: true
+        example: architecto
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: accusamus
+      password: architecto
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+            "data": {
+              "name": "admin",
+              "email": "admin@example.com",
+              "access_token": "18|GDBfDOCFsM1YZiif3tMhf9JhXgNLdM3ndJTNgKHj"
+            }
+          }
+        headers: []
+        description: '200'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        Register
+        Регистрация
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Имя пользователя. Пример: "John Doe"'
+        required: true
+        example: quis
+        type: string
+        custom: []
+      email:
+        name: email
+        description: ''
+        required: true
+        example: occaecati
+        type: string
+        custom: []
+      password:
+        name: password
+        description: 'пароль пользователя.'
+        required: true
+        example: ad
+        type: string
+        custom: []
+      password_confirmation:
+        name: password_confirmation
+        description: 'подтверждение пользователя.'
+        required: true
+        example: sed
+        type: string
+        custom: []
+    cleanBodyParameters:
+      name: quis
+      email: occaecati
+      password: ad
+      password_confirmation: sed
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+            "message": "You are successfully registered"
+          }
+        headers: []
+        description: '200'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/me
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: |-
+        User profile information
+        Информация о профиле
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+            "data": {
+              "uuid": "6742fd4f-ff0c-3a6c-93c1-a9244747e68a",
+              "email": "admin@example.com"
+            }
+          }
+        headers: []
+        description: '200'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Authentication
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Log the user out (Invalidate the token).'
+      description: 'Выйти из профиля'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+      Authorization: 'Bearer {token}'
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: |
+          {
+            "message": "Successfully logged out"
+          }
+        headers: []
+        description: '200'
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
