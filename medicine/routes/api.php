@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::group(['prefix' => 'appointment', 'as' => 'appointment.'], function(){
+Route::group(['prefix' => 'appointment', 'as' => 'appointment.', 'middleware' => 'oauth'], function(){
     Route::get('', [AppointmentController::class, 'estimate'])->name('estimate');
     Route::post('{user:uuid}', [AppointmentController::class, 'booking'])->name('booking');
     Route::patch('{appointment:uuid}', [AppointmentController::class, 'status'])->name('status');
