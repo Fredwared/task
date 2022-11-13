@@ -1,9 +1,5 @@
 FROM php:8.1-fpm-alpine
 
-ARG WORKDIR=/var/www
-
-ENV DOCUMENT_ROOT=${WORKDIR}
-
 RUN apk update add wget curl zip unzip nano mc
 
 RUN set -ex \
@@ -16,3 +12,4 @@ RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* var/cache/apk* && set -x
 
 COPY docker/php/php.ini /usr/local/etc/php/conf.d/php.ini
 
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
