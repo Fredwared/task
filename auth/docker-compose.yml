@@ -33,10 +33,12 @@ services:
     depends_on:
       - postgres
     networks:
+      - default
       - oauth-net
 volumes:
   postgres_data:
   pgadmin:
 networks:
+  default:
   oauth-net:
       driver: bridge

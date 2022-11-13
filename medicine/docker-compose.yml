@@ -30,14 +30,13 @@ services:
     container_name: "medicine_app"
     volumes:
       - ./:/var/www
-    depends_on:
-      - postgres
     networks:
+      - default
       - oauth-network
 volumes:
   postgres_data:
-  pgadmin:
 networks:
+    default:
     oauth-network:
         name: "auth_oauth-net"
         external: true
