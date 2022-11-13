@@ -1,0 +1,18 @@
+{
+    "data": {
+        "uuid": "453f9a5d-b2a5-4ac7-996f-cddc4f3b5539",
+        "doctor": {
+            "uuid": "aee58d95-a7e5-321a-addb-55bf9618bed5",
+            "name": "Ms. Bessie Ryan"
+        },
+        "patient": {
+            "uuid": "cf000f75-cb5d-4fc9-a804-9bed3d25395e",
+            "first_name": "Merl",
+            "last_name": "Strosin"
+        },
+        "queue": 1,
+        "room_number": 53,
+        "status": "CANCELED",
+        "booking_date": "2022-11-14 23:59"
+    }
+}

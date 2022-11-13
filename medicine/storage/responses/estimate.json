@@ -1,0 +1,141 @@
+{
+    "data": [
+        {
+            "uuid": "aee58d95-a7e5-321a-addb-55bf9618bed5",
+            "name": "Ms. Bessie Ryan",
+            "hours": [
+                "10:54",
+                "21:05"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "01d126e5-a818-3c28-a48d-94692d8a845c",
+            "name": "Odessa Will",
+            "hours": [
+                "17:15",
+                "22:41"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "6dcfb5a8-eea7-3cc4-b039-5e4672546148",
+            "name": "Sincere Carroll PhD",
+            "hours": [
+                "02:51",
+                "07:33",
+                "08:45"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "82f063e5-4581-330a-8791-b4295876aaca",
+            "name": "Missouri Gaylord III",
+            "hours": [
+                "02:51",
+                "03:30",
+                "12:10"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "6d221ffe-3854-32ec-a200-8c9430f307f7",
+            "name": "Abby Abbott",
+            "hours": [
+                "01:05",
+                "02:03",
+                "02:16",
+                "10:54"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "9a296e83-62f9-310b-a880-50b6dbb81973",
+            "name": "Prof. Colten Schneider PhD",
+            "hours": [
+                "00:48",
+                "03:12",
+                "10:27",
+                "10:48",
+                "14:02"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "e960b127-fce4-3715-91fc-742d43b38b9b",
+            "name": "Alysha Kuhic",
+            "hours": [
+                "09:11",
+                "21:11"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "c9352965-a1a9-3654-8735-da532026b81c",
+            "name": "Carolyne Maggio",
+            "hours": [
+                "01:28",
+                "02:38",
+                "11:02"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "4366d668-74a7-3de3-bd3d-3ce31ea2d315",
+            "name": "Evie Beier",
+            "hours": [
+                "03:48",
+                "09:47",
+                "16:24",
+                "20:08"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "ee3815a4-b14f-3fb4-8f43-f17de1c5e4a3",
+            "name": "Ms. Nikki Romaguera",
+            "hours": [
+                "00:28",
+                "03:38",
+                "06:26",
+                "07:36",
+                "10:00",
+                "17:29"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "3427e25d-e187-387d-b174-98df53c018ca",
+            "name": "Dr. Jason Heaney PhD",
+            "hours": [
+                "05:51",
+                "06:11",
+                "12:58",
+                "17:41"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "cfb91586-df7d-32d4-aeb6-fd93ff0cf638",
+            "name": "Dr. Colby Ritchie I",
+            "hours": [
+                "00:03",
+                "07:52",
+                "12:25",
+                "18:19"
+            ],
+            "is_available": true
+        },
+        {
+            "uuid": "ffe11ae2-b5a1-3584-9f0b-6309b7ec3259",
+            "name": "Michaela Gutkowski",
+            "hours": [
+                "11:30",
+                "11:31",
+                "18:17",
+                "21:38"
+            ],
+            "is_available": true
+        }
+    ]
+}

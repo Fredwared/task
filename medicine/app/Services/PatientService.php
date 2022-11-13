@@ -27,7 +27,8 @@ class PatientService
             'uuid' => Str::uuid()->toString(),
             'first_name' => fake()->firstName,
             'last_name' => fake()->lastName,
-            'passport' => fake()->randomLetter . fake()->randomLetter . fake()->numerify('#######')
+            'passport' => fake()->randomLetter . fake()->randomLetter . fake()->numerify('#######'),
+            'birth_date' => fake()->dateTime
         ]);
     }
 }

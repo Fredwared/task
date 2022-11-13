@@ -25,9 +25,9 @@ class AppointmentStatusChangeRequest extends FormRequest
      */
     public function rules()
     {
-
         /** @var Appointment $appointment */
         $appointment = $this->route('appointment');
+
         return [
             'status' => ['required', new AppointmentChangeStatusRule($appointment)]
         ];

@@ -9,14 +9,14 @@ use Illuminate\Contracts\Validation\Rule;
 class AppointmentChangeStatusRule implements Rule
 {
     protected string $message;
-    protected Appointment $appointment;
+    protected ?Appointment $appointment;
 
     /**
      * Create a new rule instance.
      *
      * @return void
      */
-    public function __construct(Appointment $appointment)
+    public function __construct(?Appointment $appointment)
     {
         $this->message = 'The validation error message.';
         $this->appointment = $appointment;
@@ -31,6 +31,8 @@ class AppointmentChangeStatusRule implements Rule
      */
     public function passes($attribute, $value)
     {
+        if(!$this->appointment) return false;
+
         $currentStatus = $this->appointment->status;
 
         if (!in_array($value, array_keys(AppointmentStatusConstants::LIST))) {

@@ -38,6 +38,7 @@ class AppointmentController extends Controller
      *
      * @param AppointmentEstimateRequest $appointmentEstimateRequest
      * @return AnonymousResourceCollection
+     * @responseFile responses/estimate.json
      */
     public function estimate(AppointmentEstimateRequest $appointmentEstimateRequest): AnonymousResourceCollection
     {
@@ -57,6 +58,7 @@ class AppointmentController extends Controller
      * @param User $user
      * @param AppointmentBookingRequest $appointmentBookingRequest
      * @return AppointmentBookingResource
+     * @responseFile responses/booking.json
      */
     public function booking(User $user, AppointmentBookingRequest $appointmentBookingRequest): AppointmentBookingResource
     {
@@ -75,6 +77,7 @@ class AppointmentController extends Controller
      * @param Appointment $appointment
      * @param AppointmentStatusChangeRequest $changeRequest
      * @return AppointmentBookingResource
+     * @responseFile responses/status.json
      */
     public function status(Appointment $appointment, AppointmentStatusChangeRequest $changeRequest)
     {
